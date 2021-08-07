@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Chrome Extension TypeScript Starter",
-  "description": "Chrome Extension, TypeScript, Visual Studio Code",
+  "name": "WriteIt for Chrome",
+  "description": "WriteIt Chrome extension.",
   "version": "1.0",
 
   "options_ui": {
@@ -18,7 +18,9 @@
   "content_scripts": [
       {
           "matches": ["<all_urls>"],
-          "js": ["js/vendor.js", "js/content_script.js"]
+          "js": ["js/vendor.js", "js/content_script.js"],
+          "css" : ["injectStyles.css"],
+          "run_at": "document_end"
       }
   ],
 
@@ -28,6 +30,13 @@
 
   "permissions": [
     "storage",
+    "webNavigation",
     "<all_urls>"
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "writeit@writeit.com",
+      "strict_min_version": "48.0"
+    }
+  }
 }
