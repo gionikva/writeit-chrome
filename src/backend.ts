@@ -1,4 +1,5 @@
 import Tokenizer from 'sentence-tokenizer';
+import { Suggestion } from './types';
 
 export function getSuggestions(text: string): Suggestion[] {
     const tokenizer = new Tokenizer("Anon");

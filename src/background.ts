@@ -11,10 +11,12 @@ chrome.runtime.onInstalled.addListener((details) => {
   })
 })
 
-chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (changeInfo.status == 'complete' && tab.active) {
-      // chrome.tabs.executeScript({file: 'js/content_script.js'});
-    // do your things
-
+    chrome.storage.sync.get(({ enabled }) => {
+      if (enabled) {
+        chrome.tabs.executeScript({ file: 'js/content_script.js' });
+      };
+    })// do your things
   }
 })

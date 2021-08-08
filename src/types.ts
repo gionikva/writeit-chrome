@@ -1,14 +1,14 @@
-interface StorageInterface {
+export interface StorageInterface {
     enabled: boolean;
 }
 
-interface Message {
+export interface Message {
     showSuggestions?: true,
     correctText?: true,
 }
 
 
-interface Suggestion {
+export interface Suggestion {
     initial: string
     description: string
     corrections: string[]
@@ -16,7 +16,17 @@ interface Suggestion {
     endIndex: Number
 }
 
-interface InputElement {
+export interface Highlight {
+    position: {
+        left: number,
+        right: number
+    },
+    width: number,
+    suggestion: Suggestion,
+    id: string
+}
+
+export interface InputElement {
     currentText: string,
     element: HTMLElement
 }

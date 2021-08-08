@@ -18,7 +18,7 @@
   "content_scripts": [
       {
           "matches": ["<all_urls>"],
-          "js": ["js/vendor.js", "js/content_script.js"],
+          "js": ["js/vendor.js"],
           "css" : ["injectStyles.css"],
           "run_at": "document_end"
       }
@@ -31,6 +31,8 @@
   "permissions": [
     "storage",
     "webNavigation",
+    "scripting",
+    "activeTab",
     "<all_urls>"
   ],
   "browser_specific_settings": {
